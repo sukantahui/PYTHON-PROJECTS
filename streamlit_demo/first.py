@@ -98,6 +98,7 @@ if uploaded_file is not None:
     st.write("")
     st.write("Classifying...")
      
+# Creating a text file
 f= open("default","w+")
 for i in range(10):
      f.write("This is line %d\r\n" % (i+1))
