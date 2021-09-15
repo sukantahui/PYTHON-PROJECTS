@@ -23,11 +23,11 @@ os.system('dir')
 
 new_candidates = []
 submit = st.button('submit new letters')
+save_product = st.button('save product')
 if submit:
     response = requests.get("http://127.0.0.1/gold_old/gold_api/public/api/dev/customerCategories/visible")
     st.write(response.status_code)
     st.write(response.json().get('data'))
-
 
 
 response = requests.get("http://127.0.0.1/gold_old/gold_api/public/api/dev/customerCategories/visible")
@@ -106,3 +106,11 @@ f.close()
 # df = pd.read_sql("select * from gold_price;", conn)
 
 # st.write(df)
+
+if save_product:
+    cursor = conn.cursor()
+    save_response = cursor.execute("insert into product_master (`product_code` ,`product_description`,`product_category`,`price_code`,`user_id`,`details`,`product_markuped`,`product_markup_value`) VALUES ('Y0008' ,'nupur',19,'Y' ,'NULL','NULL',0,0)")
+    print("affected rows = {}".format(cursor.rowcount))
+
+conn.commit()
+
