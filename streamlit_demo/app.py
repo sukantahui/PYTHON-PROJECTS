@@ -14,8 +14,25 @@ import mysql.connector
 
 from streamlit_ace import st_ace
 
+
+
+# max_width_str = f"max-width: 1500px;"
+# st.markdown(
+# 	f"""
+# 		<style>
+# 			.reportview-container .main .block-container {{{max_width_str}}}
+# 		</style>    
+# 	""",
+# 	unsafe_allow_html=True
+# )
+
+
+
+st.set_page_config(layout="wide")
+
 # Spawn a new Ace editor
 content = st_ace()
+st.markdown('---')
 
 
 def my_widget(key):
